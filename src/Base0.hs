@@ -27,6 +27,7 @@ module Base0
   , module Data.Word
   , module GHC.Exts
   , module GHC.Stack
+  , module System.Exit
   , module System.IO
   , module Text.Show
 
@@ -74,10 +75,6 @@ module Base0
     --              safe              --
     ------------------------------------
   , head, init, last, tail
-
-  , module Text
-  , module TextIO
-  , module P
   )
 where
 
@@ -102,6 +99,7 @@ import Data.Tuple              ( fst, snd )
 import Data.Word               ( Word8 )
 import GHC.Exts                ( IsList( Item, fromList, fromListN, toList ) )
 import GHC.Stack               ( CallStack, HasCallStack, callStack )
+import System.Exit             ( ExitCode(..) )
 import System.IO               ( IO )
 import Text.Show               ( Show( show ) )
 
@@ -139,15 +137,6 @@ import Control.Monad.Except  ( ExceptT, MonadError, throwError )
 -- safe --------------------------------
 
 import qualified Safe
-
--- text --------------------------------
-
-import qualified Data.Text     as  Text
-import qualified Data.Text.IO  as  TextIO
-
--- text-printer ------------------------
-
-import qualified  Text.Printer  as  P
 
 --------------------------------------------------------------------------------
 
