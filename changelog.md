@@ -1,3 +1,7 @@
+0.0.3.0 2021-01-03
+==================
+- more additions, including String, Ord operations, and others
+
 0.0.2.0 2021-12-16
 ==================
 - removed useless qualified Text,TextIO,P; add System.ExitCode(..)

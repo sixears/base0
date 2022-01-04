@@ -16,14 +16,21 @@ module Base0
   , module Control.Monad
   , module Control.Monad.IO.Class
   , module Data.Bifunctor
+  , module Data.Bool
   , module Data.Either
   , module Data.Eq
+  , module Data.Foldable
   , module Data.Function
   , module Data.Functor
   , module Data.Functor.Identity
   , module Data.List.NonEmpty
   , module Data.Maybe
+  , module Data.Ord
+  , module Data.Semigroup
+  , module Data.String
+  , module Data.Traversable
   , module Data.Tuple
+  , module Data.Typeable
   , module Data.Word
   , module GHC.Exts
   , module GHC.Stack
@@ -38,6 +45,8 @@ module Base0
   , module Data.Bool.Unicode
   , module Data.Eq.Unicode
   , module Data.Function.Unicode
+  , module Data.List.Unicode
+  , module Data.Ord.Unicode
   , module Data.Monoid.Unicode
   , module Numeric.Natural.Unicode
   , module Prelude.Unicode
@@ -78,26 +87,35 @@ module Base0
   )
 where
 
-import Prelude  ( (+), (-), fromIntegral )
+import Prelude  ( (+), (-), abs, fromInteger, fromIntegral, toInteger )
 
 -- base --------------------------------
 
-import Control.Applicative     ( (<*>), (*>), (<*), many, pure, some )
+import Control.Applicative     ( Applicative
+                               , (<*>), (*>), (<*), many, pure, some )
 import Control.Exception       ( Exception )
 import Control.Monad           ( Monad, (>>), (>>=), foldM, forM, forM_, mapM
                                , mapM_, join, return, sequence, when )
 import Control.Monad.IO.Class  ( MonadIO, liftIO )
 import Data.Bifunctor          ( first, second )
+import Data.Bool               ( Bool, (&&), (||), not, otherwise )
 import Data.Either             ( Either( Left, Right ), either )
 import Data.Eq                 ( Eq( (==), (/=) ) )
-import Data.Function           ( ($), (&), const, id )
-import Data.Functor            ( (<$>) )
+import Data.Foldable           ( foldl, foldl', foldl1, foldlM
+                               , foldr, foldr', foldr1, foldrM, toList )
+import Data.Function           ( (.), ($), (&), const, id )
+import Data.Functor            ( (<$>), fmap )
 import Data.Functor.Identity   ( Identity )
 import Data.List.NonEmpty      ( NonEmpty( (:|) ) )
 import Data.Maybe              ( Maybe( Just, Nothing ), maybe )
+import Data.Ord                ( Ord, (>), (<), (>=), (<=), max, min )
+import Data.Semigroup          ( Semigroup( (<>) ) )
+import Data.String             ( String )
+import Data.Traversable        ( Traversable, traverse )
 import Data.Tuple              ( fst, snd )
-import Data.Word               ( Word8 )
-import GHC.Exts                ( IsList( Item, fromList, fromListN, toList ) )
+import Data.Typeable           ( Typeable )
+import Data.Word               ( Word8, Word16, Word32, Word64 )
+import GHC.Exts                ( IsList( Item, fromList, fromListN ) )
 import GHC.Stack               ( CallStack, HasCallStack, callStack )
 import System.Exit             ( ExitCode(..) )
 import System.IO               ( IO )
@@ -105,12 +123,14 @@ import Text.Show               ( Show( show ) )
 
 -- base-unicode-symbols ----------------
 
-import Data.Bool.Unicode        ( (∧) )
+import Data.Bool.Unicode        ( (∧), (∨) )
 import Data.Eq.Unicode          ( (≡), (≢) )
 import Data.Function.Unicode    ( (∘) )
+import Data.List.Unicode        ( (∈), (∉) )
 import Data.Monoid.Unicode      ( (⊕) )
+import Data.Ord.Unicode         ( (≤), (≥) )
 import Numeric.Natural.Unicode  ( ℕ )
-import Prelude.Unicode          ( ℤ )
+import Prelude.Unicode          ( ℤ, (÷) )
 
 -- data-default ------------------------
 
