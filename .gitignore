@@ -30,3 +30,4 @@ cabal.project.local
 dist-newstyle/
 dist-newstyle/
 cabal.project.local~*
+flake.nix.no-flake-utils

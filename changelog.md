@@ -1,3 +1,8 @@
+0.0.4.0 2022-10-24
+==================
+- add Control.Monad.filterM
+- add flake
+
 0.0.3.0 2021-01-03
 ==================
 - more additions, including String, Ord operations, and others

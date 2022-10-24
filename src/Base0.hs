@@ -94,8 +94,8 @@ import Prelude  ( (+), (-), abs, fromInteger, fromIntegral, toInteger )
 import Control.Applicative     ( Applicative
                                , (<*>), (*>), (<*), many, pure, some )
 import Control.Exception       ( Exception )
-import Control.Monad           ( Monad, (>>), (>>=), foldM, forM, forM_, mapM
-                               , mapM_, join, return, sequence, when )
+import Control.Monad           ( Monad, (>>), (>>=), filterM, foldM, forM, forM_
+                               , mapM, mapM_, join, return, sequence, when )
 import Control.Monad.IO.Class  ( MonadIO, liftIO )
 import Data.Bifunctor          ( first, second )
 import Data.Bool               ( Bool, (&&), (||), not, otherwise )
