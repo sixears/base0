@@ -1,3 +1,8 @@
+0.0.4.1 2022-10-27
+==================
+- add flake.nix
+- use ghc-8.10.7 for tfmt
+
 0.0.4.0 2022-10-24
 ==================
 - add Control.Monad.filterM
