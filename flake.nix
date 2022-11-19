@@ -9,7 +9,7 @@
   outputs = { self, nixpkgs, build-utils }:
     build-utils.lib.hOutputs self nixpkgs "base0" {
       ghc = p: p.ghc8107; # for tfmt
-      callPackage = { mkDerivation, lib, system
+      callPackage = { mkDerivation, lib, mapPkg, system
                     , base, base-unicode-symbols, data-default, data-textual
                     , hashable, lens, mtl, safe
                     }:
