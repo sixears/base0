@@ -18,7 +18,7 @@
         in
           mkDerivation {
             pname = "base0";
-            version = "0.0.4.7";
+            version = "0.0.4.11";
             src = ./.;
             libraryHaskellDepends = [
               base base-unicode-symbols data-default data-textual hashable lens
